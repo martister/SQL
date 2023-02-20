@@ -1,0 +1,25 @@
+CREATE TABLE bikes (id INTEGER PRIMARY KEY, Brand TEXT, price NUmeric, color Text, item Text, type_ Text, terrain Text);
+
+Insert INTO bikes VALUEs (1, "Trek", "450", "black or gray", "Bike", "manual", "mountain"),
+(2, "Canyon Spectral", "10,150", "black or gray", "Bike", "E-bike", "mountain"),
+(3, "Lectric", "1200", "black, white or gray", "Bike", "E-bike", "road"),
+(4, "Blix", "2000", "Black/White", "Bike", "E-bike", "off-road"),
+(5, "Specialized", "490", "Red", "Bike", "manual", "mountain"),
+(6, "Trek", "600", "Gray or Black", "Bike", "manual", "road"),
+(7, "QuietKat", "3100", "Gray and Gold", "Bike", "E-bike", "off-road"),
+(8, "Fat Tire", "860", "Black", "Bike", "E-bike", "off-road"),
+(9, "Huffy", "230", "Sky Blue", "Bike", "manual", "road"),
+(10, "Cannondale", "1725", "Meteor Gray", "Bike", "manual", "road"),
+(11, "Mongoose", "400", "Black", "Bike", "manual", "off-road"),
+(12, "Giant", "800", "Black", "Bike", "manual", "off-road"),
+(13, "Trek", "120", "Black", "Light Set", "Accessory", "all-terrain"),
+(14, "Bontrager", "160", "Blue, Black or Yellow", "Helmet", "Accessory", "road"),
+(15, "Bontrager", "150", "Gray, Black or Yellow", "Helmet", "Accessory", "mountain");
+
+select * from bikes
+
+order by price asc;
+
+Select Brand From bikes
+Where type_ = "E-bike";
+
