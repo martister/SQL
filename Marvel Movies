@@ -1,14 +1,4 @@
 
--- Query the name of actors and marvel movies they were in --
-
-Select c.name, m.title From marvel_celeb
-    JOIN celebrities c
-    ON marvel_celeb.celeb_id = c.id
-    JOIN marvel_movies m
-    ON marvel_celeb.movie_id = m.id
-    ORDER BY m.release_year;
-
-
 -- Create table for celebrities
 CREATE TABLE celebrities (
     id integer PRIMARY KEY,
@@ -157,7 +147,7 @@ INSERT INTO marvel_celeb (celeb_id, movie_id) VALUES
 (16, 18),
 (16, 21);
 
-
+---------------------------------------------------------------------------
 
 -- Query the name of actors and marvel movies they were in --
 
