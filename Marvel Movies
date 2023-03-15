@@ -1,0 +1,159 @@
+
+-- Create table for celebrities
+CREATE TABLE celebrities (
+    id integer PRIMARY KEY,
+    name TEXT,
+    age numeric,
+    num_movies numeric);
+
+-- Create table for marvel movies    
+CREATE TABLE marvel_movies (
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    release_year INTEGER);
+    
+-- Create table for actor to movie relationship
+CREATE TABLE marvel_celeb (
+    id INTEGER Primary Key,
+    celeb_id INTEGER,
+    movie_id INTEGER);
+
+
+-- Insert data into celebrities table
+INSERT INTO celebrities (name, age, num_movies) VALUES
+    ('Robert Downey Jr.', 56, 10),
+    ('Chris Evans', 40, 8),
+    ('Mark Ruffalo', 54, 8),
+    ('Chris Hemsworth', 38, 8),
+    ('Scarlett Johansson', 37, 8),
+    ('Jeremy Renner', 50, 5),
+    ('Chris Pratt', 43, 5),
+    ('Paul Rudd', 52, 6),
+    ('Brie Larson', 32, 2),
+    ('Karen Gillan', 33, 6),
+    ('Benedict Cumberbatch', 45, 4),
+    ('Paul Bettany', 50, 5),
+    ('Josh Brolin', 53, 3),
+    ('Tom Holland', 25, 4),
+    ('Elizabeth Olsen', 32, 3),
+    ('Chadwick Boseman', 43, 4);
+
+ 
+-- Insert data into marvel_movies table   
+INSERT INTO marvel_movies (title, release_year) VALUES
+    ('Iron Man', 2008),
+    ('Iron Man 2', 2010),
+    ('Thor', 2011),
+    ('Captain America: The First Avenger', 2011),
+    ('The Avengers', 2012),
+    ('Iron Man 3', 2013),
+    ('Thor: The Dark World', 2013),
+    ('Captain America: The Winter Soldier', 2014),
+    ('Guardians of the Galaxy', 2014),
+    ('Avengers: Age of Ultron', 2015),
+    ('Ant-Man', 2015),
+    ('Captain America: Civil War', 2016),
+    ('Doctor Strange', 2016),
+    ('Guardians of the Galaxy Vol. 2', 2017),
+    ('Spider-Man: Homecoming', 2017),
+    ('Thor: Ragnarok', 2017),
+    ('Black Panther', 2018),
+    ('Avengers: Infinity War', 2018),
+    ('Ant-Man and The Wasp', 2018),
+    ('Captain Marvel', 2019),
+    ('Avengers: Endgame', 2019),
+    ('Spider-Man: Far From Home', 2019);     
+ 
+   
+-- Insert data into marvel_celeb table
+INSERT INTO marvel_celeb (celeb_id, movie_id) VALUES
+(1, 1),
+(1, 2),
+(1, 5),
+(1, 6),
+(1, 8),
+(1, 10),
+(1, 12),
+(1, 15),
+(1, 18),
+(1, 21),
+(2, 4),
+(2, 5),
+(2, 8),
+(2, 10),
+(2, 12),
+(2, 18),
+(2, 21),
+(3, 5),
+(3, 6),
+(3, 10),
+(3, 16),
+(3, 18),
+(3, 21),
+(4, 3),
+(4, 5),
+(4, 7),
+(4, 10),
+(4, 16),
+(4, 18),
+(4, 21),
+(5, 2),
+(5, 5),
+(5, 8),
+(5, 10),
+(5, 18),
+(5, 21),
+(6, 3),
+(6, 5),
+(6, 10),
+(6, 12),
+(6, 21),
+(7, 9),
+(7,14),
+(7, 18),
+(7, 21),
+(8, 11),
+(8, 12),
+(8, 19),
+(8, 21),
+(9, 20),
+(9, 21),
+(10, 9),
+(10, 14),
+(10, 18),
+(10, 21),
+(11, 13),
+(11, 16),
+(11, 18),
+(11, 21),
+(12, 10),
+(12, 12),
+(12, 18),
+(12, 21),
+(13, 5),
+(13, 18),
+(13, 21),
+(14, 12),
+(14, 15),
+(14,18),
+(14, 21),
+(14, 22),
+(15, 10),
+(15, 12),
+(15, 18),
+(15, 21),
+(16, 8),
+(16, 17),
+(16, 18),
+(16, 21);
+
+
+
+-- Query the name of actors and marvel movies they were in --
+
+Select c.name, m.title From marvel_celeb
+    JOIN celebrities c
+    ON marvel_celeb.celeb_id = c.id
+    JOIN marvel_movies m
+    ON marvel_celeb.movie_id = m.id
+    ORDER BY m.release_year;
